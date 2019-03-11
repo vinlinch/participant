@@ -1,0 +1,68 @@
+@mixin card-box {
+  background-color: #fff;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  box-shadow: 2px 2px 8px #dedede;
+}
+
+@mixin widthHeight($width,$height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin displayFlex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+//flex 默认值为1
+@mixin flexNum($fnum:1) {
+  -prefix-box-flex: $fnum; /* old spec webkit, moz */
+  -webkit-box-flex: $fnum; /* OLD -ios6-, Safari 3.1-6 */
+  -webkit-flex: $fnum; /* Chrome */
+  -moz-box-flex: $fnum; /* Firefox 19- */
+  -ms-flex: $fnum; /* IE 10 */
+  flex: $fnum; /* NEW,  Opera 12.1, Firefox 20+ */
+}
+
+@mixin borderRadius($radius:none) {
+  -moz-border-radius: $radius; /* Firefox */
+  -webkit-border-radius: $radius; /* Safari 和 Chrome */
+  border-radius: $radius; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
+}
+
+
+// 多倍屏背景图（除了接口获取的图，所有图都用背景图方案）
+@mixin bg-image($url, $format: 'png') {
+  background-image: url($url + "." + $format);
+  // https://github.com/postcss/autoprefixer/issues/521
+  @media (min-resolution: 2dppx) and (max-resolution: 3dppx) {
+    background-image: url($url + "@2x." + $format);
+  }
+  @media (min-resolution: 3dppx) {
+    background-image: url($url + "@3x." + $format);
+  }
+}
+
+// 不换行 加省略号
+@mixin ellipsis() {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+// 扩展点击区域
+@mixin extend-click() {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+  }
+}

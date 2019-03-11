@@ -1,0 +1,14 @@
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = flase
+
+[*.js]                              # 对所有的 js 文件生效
+quote_type = single                 # 字符串使用单引号
+
+[*.md]
+trim_trailing_whitespace = false

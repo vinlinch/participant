@@ -1,0 +1,18 @@
+.el-table th, .el-table td {
+  text-align: center !important
+}
+
+.el-radio {
+  margin: 10px !important;
+}
+
+.upload-disable .el-upload--picture-card{
+  display: none;
+}
+//
+//.active .el-upload--picture-card {
+//  display: none;
+//}
+.el-upload-dragger{
+  width:180px!important;
+}
